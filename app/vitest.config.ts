@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitest/config';
-import { angularTestSetup } from '@angular/standalone-test';
+
 
 export default defineConfig({
   test: {
