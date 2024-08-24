@@ -32,4 +32,4 @@ jobs:
           docker build -t ghcr.io/politecnianos/montenegro-mlikota-ibarrola-galvan-front/my-app:latest ./app
       - name: Push the Docker image
         run: |
-          docker push ghcr.io/politecnianos/montenegro-mlikota-ibarrola-galvan-back/my-app:latest
+          docker push ghcr.io/politecnianos/montenegro-mlikota-ibarrola-galvan-app/my-app:latest
