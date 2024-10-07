@@ -1,19 +1,13 @@
 import { Component } from '@angular/core';
+import { LoginComponent } from './components/login/login.component'; 
 
 @Component({
   standalone: true,
   selector: 'app-root',
-  template: `
-    <div class="content">
-      <span>{{ title }} is running!</span>
-    </div>
-  `,
-  styles: [`
-    .content {
-      text-align: center;
-    }
-  `],
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+  imports: [LoginComponent] 
 })
 export class AppComponent {
-  title = 'app';
+  title = 'Politecnianos';
 }
