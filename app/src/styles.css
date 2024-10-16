@@ -1,0 +1,10 @@
+@font-face{
+    font-family: 'Titulos';
+    src: url("assets/fuentes/Nexa-Heavy.ttf") format('truetype');
+}
+
+@font-face{
+    font-family: 'Textos light';
+    src: url("assets/fuentes/Nexa-ExtraLight.ttf") format('truetype');
+    font-weight: bold;
+}

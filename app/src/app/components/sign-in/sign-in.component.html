@@ -1,1 +1,65 @@
-<p>sign-in works!</p>
+<section class="listado-apply">
+    <form [formGroup]="applyForm" (ngSubmit)="submitApplication()">
+        <div id="divLogo">
+            <img id="logo" src="../../../assets/imagenes/logoPolitecnianos.png">
+        </div>
+
+        <div id="inicioSesion">
+            <div class="divInput">
+                <p class="textos">Ingrese su dni</p>
+                <input id="dni" type="number" class="form-control" class="inputSesion" formControlName="dni" placeholder="Introduzca su número de documento">
+            </div>
+            <div class="divInput">
+                <p class="textos">Ingrese su nombre y apellido</p>
+                <input id="nombre" type="text" class="form-control" class="inputSesion" formControlName="nombre" placeholder="Ej: Emilia Torres">
+            </div>
+            <div class="divInput">
+                <p class="textos">Ingrese su apodo</p>
+                <input id="apodo" type="text" class="form-control" class="inputSesion" formControlName="apodo" placeholder="Ej: Emi">
+            </div>
+            <div class="divInput">
+                <p class="textos">Ingrese su mail</p>
+                <input id="mail" type="email" class="form-control" class="inputSesion" formControlName="mail" placeholder="Introduzca su mail">
+            </div>
+            <div class="divInput">
+                <p class="textos">Ingrese una contraseña</p>
+                <p class="textosLight">La contraseña debe tener más de 4 caracteres</p>
+                <input id="password" type="password" class="form-control" class="inputSesion" formControlName="contrasena" placeholder="Cree su contraseña">
+            </div>
+            <div class="divInput">
+                <p class="textos">Repita la contraseña</p>
+                <input id="confirmPassword" type="password" class="form-control" class="inputSesion" formControlName="contrasenaRep" placeholder="Repita la contraseña creada">
+            </div>
+
+            <div class="divInput">
+                <p class="textosLight">*Si sos de 1°, 2°, o 3°, marcá la opción "Ciclo Básico"*</p>
+            </div>
+
+            <div id="selectDiv">
+                <div class="divInput">
+                    <select class="form-select" id="especialidad" formControlName="orientacion">
+                        <option selected>Seleccione su especialidad</option>
+                        <option value="computación">Computación</option>
+                        <option value="mecánica">Mecánica</option>
+                        <option value="ciclo básico">Ciclo Básico</option>
+                    </select>
+                </div>
+                <div class="divInput">
+                    <select class="form-select" formControlName="curso">
+                        <option selected>Seleccione su curso</option>
+                        <option value="primero">Primero</option>
+                        <option value="segundo">Segundo</option>
+                        <option value="tercero">Tercero</option>
+                        <option value="cuarto">Cuarto</option>
+                        <option value="quinto">Quinto</option>
+                        <option value="sexto">Sexto</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div id="botonDiv">
+            <button id="btnLogin" type="submit">Registrarse</button>
+        </div>
+    </form>
+</section>

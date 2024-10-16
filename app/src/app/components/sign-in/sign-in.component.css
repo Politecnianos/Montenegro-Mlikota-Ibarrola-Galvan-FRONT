@@ -1,0 +1,105 @@
+
+#logo{
+    height: 2%;
+    width: 10%;
+}
+
+#divLogo{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 2% ;
+}
+
+#inicioSesion{
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    margin-top: 1%;
+    width: 100%;
+    
+}
+
+.inputSesion{
+    width: 500px;
+    border-radius: 4px;
+    margin-bottom: 1%;
+    border: 1px solid rgb(148, 145, 145);
+    height: 30px;
+}
+
+input{
+    padding: 1%;
+    padding-left: 3%;
+}
+
+#btnLogin{
+    border: none;
+    border-radius: 4px;
+    width: 200px;
+    background-color: rgb(13, 13, 78);
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 3%;
+    font-weight: bolder;
+    box-shadow: 0px 0px 0px 5px rgba(13, 13, 78 0.034);
+    margin-bottom: 5%;
+}
+
+
+#btnLogin:hover {
+    background-color: #04376e;
+}
+
+#botonDiv{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+#registro{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 1% !important;
+}
+
+.textos{
+    font-family: "Titulos";
+    font-size: 20px;
+}
+
+#leyendaRegistro{
+    font-family: "Textos light";
+}
+
+.textosLight{
+    font-family: "Textos light";
+    margin-bottom: 4%;
+    width: 100%;
+}
+
+input[type="number"] {
+    appearance: textfield;
+}
+
+.form-select{
+    border: 1px solid rgb(148, 145, 145);
+    background-color:  rgba(255, 255, 255, 0.603);
+    padding: 9px;
+    border-radius: 4px;
+    width: 200px;
+}
+
+#selectDiv {
+    display: inline-flex;       
+    justify-content: space-between; 
+    align-items: center;
+}
+
+#especialidad{
+    margin-right: 20px;
+}
