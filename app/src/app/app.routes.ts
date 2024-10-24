@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { authGuard } from './utils/auth.guard';
 
 export const routes: Routes = [
     {   path: '', 
@@ -21,6 +22,7 @@ export const routes: Routes = [
     {
         path: 'inicio',
         component: InicioComponent,
+        canActivate : [authGuard],
         title: 'Politecnianos'
     }
 ];

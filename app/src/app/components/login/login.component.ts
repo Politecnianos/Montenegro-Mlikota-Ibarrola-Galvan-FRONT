@@ -3,7 +3,7 @@ import { Router, RouterLink } from '@angular/router';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Usuario } from '../../interfaces/Usuario';
-import { UserServiceService } from '../../services/userService.service';
+import { UserServiceService } from '../../services/Usuarios/userService.service';
 
 @Component({
   selector: 'app-login',
@@ -37,11 +37,10 @@ export class LoginComponent {
 
 
 
-      
+     
       this.alumnosService.login(mail, contrasena).subscribe(
         (response: string) => {
           localStorage.setItem('token', response);
-          console.log(response)
           this.router.navigate(['/inicio']);
         },
         (error) => {

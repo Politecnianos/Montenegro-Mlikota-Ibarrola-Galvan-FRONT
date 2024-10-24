@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { inject } from '@angular/core';
-import { UserServiceService } from '../../services/userService.service';
+import { UserServiceService } from '../../services/Usuarios/userService.service';
 import { FormGroup } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { CommonModule } from '@angular/common';
