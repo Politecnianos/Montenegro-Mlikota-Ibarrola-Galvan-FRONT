@@ -1,0 +1,26 @@
+<div id="divLogo">
+    <img id="logo" src="../../../assets/imagenes/logoPolitecnianos.png" alt="Logo">
+  </div>
+  
+  <form [formGroup]="loginForm" (ngSubmit)="login()" id="inicioSesion">
+    
+    <div class="divInput">
+      <p class="textos">Ingrese su mail</p>
+      <input type="email" class="form-control inputSesion" formControlName="mail" placeholder="Introduzca su mail">
+    </div>
+  
+    <div class="divInput">
+      <p class="textos">Ingrese su contraseña</p>
+      <input type="password" class="form-control inputSesion" formControlName="contrasena" placeholder="Introduzca su contraseña">
+    </div>
+  
+    <div id="botonDiv">
+      <button id="btnLogin" type="submit">Ingresar</button>
+    </div>
+  
+  </form>
+  
+  <div id="registro">
+    <p id="leyendaRegistro">¿No tenés cuenta? <a routerLink ="/signIn">¡Registrate ahora!</a></p>
+  </div>
+  
