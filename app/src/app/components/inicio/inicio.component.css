@@ -1,0 +1,15 @@
+#menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 7%;
+}
+
+.secciones{
+    margin-right: 10%;
+    margin-top: 2%;
+}
+
+#tutorias{
+    margin-right: 0% !important;
+}
