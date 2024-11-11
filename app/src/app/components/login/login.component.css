@@ -1,0 +1,75 @@
+
+#logo{
+    height: 5%;
+    width: 20%;
+}
+
+#divLogo{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 8% ;
+}
+
+#inicioSesion{
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    margin-top: 3%;
+    width: 100%;
+}
+
+.inputSesion{
+    width: 500px;
+    border-radius: 4px;
+    margin-bottom: 1%;
+    border: 1px solid rgb(148, 145, 145);
+    height: 30px;
+}
+
+input{
+    padding: 1%;
+    padding-left: 3%;
+}
+
+#btnLogin{
+    border: none;
+    border-radius: 4px;
+    width: 200px;
+    background-color: rgb(13, 13, 78);
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 3%;
+    font-weight: bolder;
+    box-shadow: 0px 0px 0px 5px rgba(13, 13, 78 0.034);
+}
+
+
+#btnLogin:hover {
+    background-color: #04376e;
+}
+
+#botonDiv{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+#registro{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 1% !important;
+}
+
+.textos{
+    font-family: "Titulos";
+    font-size: 20px;
+}
+
+#leyendaRegistro{
+    font-family: "Textos light";
+}
