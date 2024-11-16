@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
 import { HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -14,10 +14,13 @@ import { CommonModule } from '@angular/common';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent {
+export class NavbarComponent{
+  isDropdownOpen = false;
+  activeTab: string = 'inicio'; 
 
   constructor(private router: Router) {}
-  isDropdownOpen = false;
+
+ 
 
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
