@@ -17,6 +17,8 @@ import { UserServiceService } from '../../services/Usuarios/userService.service'
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  mail : String = "";
+  dni : number = 0;
 
   loginForm = new FormGroup({
     mail: new FormControl('', [Validators.required, Validators.email]),
@@ -29,28 +31,42 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       const mail = this.loginForm.value.mail ?? '';
       const contrasena = this.loginForm.value.contrasena ?? '';
-
+  
       if (!mail.endsWith('@ipm.edu.ar')) {
         alert('Correo no válido. Debe ser un correo institucional (@ipm.edu.ar).');
         return;
       }
-
-
-
-     
+  
       this.alumnosService.login(mail, contrasena).subscribe(
         (response: string) => {
           localStorage.setItem('token', response);
-          this.router.navigate(['/inicio']);
+  
+          // Actualiza el correo y busca el DNI antes de redirigir
+          this.alumnosService.getUsuarioDni(mail).subscribe(
+            (usuario: Usuario) => {
+              this.dni = usuario.dni;
+              this.router.navigate(['/inicio', this.dni]);
+            },
+            (error) => {
+              console.error('Error al obtener el usuario:', error);
+              alert('No se pudo obtener el usuario.');
+            }
+          );
         },
         (error) => {
           console.error('Error de autenticación', error);
           alert('Correo o contraseña incorrectos');
         }
       );
-      } else {
-        console.error('Formulario inválido');
-        alert("Verifique los datos ingresados")
-      } 
+    } else {
+      console.error('Formulario inválido');
+      alert('Verifique los datos ingresados');
+    }
+  }
+  
+
+  getUsuario(): void {
+
+    
   }
 }

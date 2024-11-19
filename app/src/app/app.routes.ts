@@ -21,7 +21,7 @@ export const routes: Routes = [
         title: 'Registrarse'
     },
     {
-        path: 'inicio',
+        path: 'inicio/:id',
         component: InicioComponent,
         canActivate : [authGuard],
         title: 'Politecnianos'

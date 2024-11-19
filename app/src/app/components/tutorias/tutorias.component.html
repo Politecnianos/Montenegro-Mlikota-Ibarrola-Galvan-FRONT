@@ -1,3 +1,6 @@
 <app-navbar></app-navbar>
-<p style="margin-top: 20%;">EEE</p>
 
+<div class="mensajes-container">
+    <app-mensaje *ngFor="let mensaje of mensajes" [mensaje]="mensaje"></app-mensaje>
+  </div>
+  
