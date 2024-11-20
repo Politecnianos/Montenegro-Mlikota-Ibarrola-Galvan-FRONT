@@ -16,5 +16,8 @@ export class RespuestasService {
     return this.http.post(this.urlApi, respuesta);
   }
 
+  getRespuestas() : Observable <Respuesta[]>{
+    return this.http.get<Respuesta[]>(this.urlApi);
+  }
 
 }

@@ -1,0 +1,40 @@
+.mensaje {
+    width: 100% !important;
+    background-color: rgb(241, 237, 237);
+    border-bottom: 2px solid #ccc;
+  }
+
+  #nombreUsuario{
+    font-weight: bolder;
+    font-family: "Titulos II";
+    padding: 15px;
+    padding-bottom: 0px !important;
+    font-size: small;
+  }
+
+  #datosMsj{
+    font-size: small;
+    font-family: "Textos Light";
+    padding-left: 15px;
+    margin-right: 2%;
+  }
+
+  .header {
+    font-size: 18px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+
+  #respuesta{
+    font-family:'Times New Roman', Times, serif;
+    font-size: large;
+    padding-left: 15px;
+    padding-bottom: 1% !important;
+    margin-bottom: 0px !important;
+    padding-top: 0px !important;
+    margin-top: 0px !important;
+  }

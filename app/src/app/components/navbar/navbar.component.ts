@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, RouterLink } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
 import { HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -14,11 +14,17 @@ import { CommonModule } from '@angular/common';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent{
+export class NavbarComponent implements OnInit{
   isDropdownOpen = false;
   activeTab: string = 'inicio'; 
+  idAlumno : number = 0;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private route : ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.idAlumno = parseInt(this.route.snapshot.params['id'], 10);
+  }
+  
 
  
 

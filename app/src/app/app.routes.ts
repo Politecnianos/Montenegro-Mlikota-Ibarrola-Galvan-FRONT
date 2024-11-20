@@ -27,7 +27,7 @@ export const routes: Routes = [
         title: 'Politecnianos'
     },
     {
-        path: 'tutorias',
+        path: 'tutorias/:id',
         component: TutoriasComponent,
         canActivate : [authGuard],
         title: 'Politecnianos'

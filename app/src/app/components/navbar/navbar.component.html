@@ -4,9 +4,9 @@
     </a>
 
 
-    <button class="secciones" routerLink="/inicio" >Eventos</button>
+    <button class="secciones" [routerLink]="['/inicio', idAlumno]">Eventos</button>
 
-    <button class="secciones" routerLink="/tutorias">Tutorías</button>
+    <button class="secciones" [routerLink]="['/tutorias', idAlumno]">Tutorías</button>
 
     <div id="user" class="dropdown-container">
         <button class="dropbtn" (click)="toggleDropdown()">
