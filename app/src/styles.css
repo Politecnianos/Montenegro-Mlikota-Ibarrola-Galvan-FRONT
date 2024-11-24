@@ -8,3 +8,9 @@
     src: url("assets/fuentes/Nexa-ExtraLight.ttf") format('truetype');
     font-weight: bold;
 }
+
+@font-face{
+    font-family: 'Titulos II';
+    src: url("assets/fuentes/Bastaman.ttf") format('truetype');
+    font-weight: bold;
+}

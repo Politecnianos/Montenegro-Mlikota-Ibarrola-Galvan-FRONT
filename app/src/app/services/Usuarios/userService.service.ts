@@ -20,4 +20,14 @@ export class UserServiceService {
   login(mail: string, contrasena: string): Observable<string> {
     return this.http.post<string>(this.urlApi + '/login', { mail, contrasena });
   }
+
+  getUsuario(dni : number):Observable<Usuario>{ 
+    return this.http.get<Usuario>(`${this.urlApi}/${dni}`);
+
+  }
+
+  getUsuarioDni(mail : String):Observable<Usuario>{ 
+    return this.http.get<Usuario>(`${this.urlApi}/mail/${mail}`);
+
+  }
 }

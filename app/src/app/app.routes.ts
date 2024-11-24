@@ -3,6 +3,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { authGuard } from './utils/auth.guard';
+import { TutoriasComponent } from './components/tutorias/tutorias.component';
 
 export const routes: Routes = [
     {   path: '', 
@@ -20,8 +21,14 @@ export const routes: Routes = [
         title: 'Registrarse'
     },
     {
-        path: 'inicio',
+        path: 'inicio/:id',
         component: InicioComponent,
+        canActivate : [authGuard],
+        title: 'Politecnianos'
+    },
+    {
+        path: 'tutorias/:id',
+        component: TutoriasComponent,
         canActivate : [authGuard],
         title: 'Politecnianos'
     }

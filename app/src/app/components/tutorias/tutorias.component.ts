@@ -1,26 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
+import { Mensaje } from '../../interfaces/Mensaje';
+import { UserServiceService } from '../../services/Usuarios/userService.service';
+import { CommonModule} from '@angular/common';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { MensajesService } from '../../services/Mensajes/mensajes.service';
-import { Mensaje } from '../../interfaces/Mensaje';
-import { CommonModule } from '@angular/common';
 import { MensajeComponent } from '../mensaje/mensaje.component';
-import { UserServiceService } from '../../services/Usuarios/userService.service';
-import { ActivatedRoute } from '@angular/router';
-
 
 @Component({
-  selector: 'app-inicio',
+  selector: 'app-tutorias',
   standalone: true,
   imports: [
     NavbarComponent,
     CommonModule,
     MensajeComponent
   ],
-  templateUrl: './inicio.component.html',
-  styleUrl: './inicio.component.css'
+  templateUrl: './tutorias.component.html',
+  styleUrl: './tutorias.component.css'
 })
-export class InicioComponent implements OnInit{
-
+export class TutoriasComponent {
   mensajes : Mensaje[] = [];
 
   constructor(private msjService : MensajesService, private usuarioService : UserServiceService){}
@@ -34,15 +31,11 @@ export class InicioComponent implements OnInit{
     this.msjService.getMensajes().subscribe(response => {
       if (response) {
         this.mensajes = response;
-        this.mensajes = this.mensajes.filter(mensaje => mensaje.seccion === 'Eventos');
+        this.mensajes = this.mensajes.filter(mensaje => mensaje.seccion === 'Tutorias');
       } else {
         console.error('Error: No se pudo obtener la lista de mensajes');
       }
     });
   }
-
   
-
-  
-
 }
