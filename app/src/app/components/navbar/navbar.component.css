@@ -3,6 +3,7 @@ img{
     width: auto;
     margin-top: 1%;
     margin-bottom: 1%;
+    
 }
 #logoLink{
     height: 100%;
@@ -28,7 +29,8 @@ img{
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin-left: 80%;
+    margin-left: 70%;
+    margin-right: 2%;
 }
 
 #iconoUser {
@@ -71,3 +73,23 @@ img{
 .dropdown-content a:hover {background-color: #ddd;}
   
 .show {display:block;} 
+
+.secciones{
+    cursor: pointer;
+    color: rgb(100, 97, 97);
+    transition: text-decoration 0.3s ease;
+    border: none;
+    margin-left: 2%;
+    font-size: medium;
+    border-radius: 5%;
+    padding: 0.5%;
+    padding-left: 1%;
+    padding-right: 1%;
+    
+}
+
+
+.secciones:hover {
+    background-color: rgba(0, 0, 0, 0.192);
+    border-radius: 5px;
+}
