@@ -5,29 +5,34 @@
   }
 
   #nombreUsuario{
-    font-weight: bolder;
+    font-weight: bold;
     font-family: "Titulos II";
-    padding: 15px;
-    padding-bottom: 0px !important;
     font-size: small;
+    margin-top: 0;
+    padding: 0;
   }
 
   #datosMsj{
     font-size: small;
     font-family: "Textos Light";
-    padding-left: 15px;
-    margin-right: 2%;
+    margin: 0; 
+    padding: 0;
   }
 
-  .header {
+  #headerDatos {
+    display: flex;
+    align-items: baseline; 
+    justify-content: space-between; 
+    gap: 0.8rem;
     font-size: 18px;
     color: #333;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 0px;
-    padding-bottom: 0px;
+    padding-bottom: 5px;
+    margin-left: 1%;
+    margin-top: 2%;  
+    margin-bottom: 0% !important;
   }
+
+  
 
   #respuesta{
     font-family:'Times New Roman', Times, serif;
@@ -38,3 +43,74 @@
     padding-top: 0px !important;
     margin-top: 0px !important;
   }
+
+  #acciones {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-right: 2%;
+  }
+
+  #btnEditar, #btnEliminar{
+    height: 30px;
+    width: 30px;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+  }
+
+  .cancelar{
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    border-radius: 50%;
+    border: none;
+    margin-right: 1%;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+  }
+
+  #btnEdicion{
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+  }
+
+  .enviar{
+    width: 25px;
+    height: 25px;
+    background-color: rgb(75, 75, 233);
+    border-radius: 50%;
+    border: none;
+    margin-left: 1%;
+    margin-right: 1%;
+    align-items: center;
+    display: flex;
+  }
+
+  textarea{
+    width: 98%;
+    height: 7%;
+    padding-right: 1%;
+    padding: 8px; 
+    border: 1px solid #ccc;
+    font-size: 16px;
+    resize: vertical; 
+    border-radius: 8px; 
+  }
+
+  textarea:focus {
+    border-color: #007bff; 
+    outline: none; 
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
+}
+
+
+#contenido{
+  font-family:'Times New Roman', Times, serif;
+  font-size: large;
+  padding-left: 15px;
+  margin-top: 0% !important;
+}

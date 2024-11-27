@@ -15,6 +15,7 @@
     font-family: "Titulos II";
     padding: 15px;
     padding-bottom: 0px !important;
+    cursor: pointer;
   }
 
   #datosMsj{
@@ -107,7 +108,7 @@
     margin-right: 2%;
   }
 
-  #btnEditar{
+  #btnEditar, #btnEliminar{
     height: 30px;
     width: 30px;
     background-color: transparent;
@@ -133,3 +134,10 @@
     align-items: center;
     justify-content: baseline;
   }
+
+  #acciones {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-right: 2%;
+}

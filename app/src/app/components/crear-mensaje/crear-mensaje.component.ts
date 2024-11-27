@@ -20,6 +20,7 @@ import { Router, RouterLink } from '@angular/router';
 export class CrearMensajeComponent implements OnInit{
 
   idAlumno: number = 0;
+  egresado: boolean = false;
 
   constructor(
     private usuarioService: UserServiceService,
@@ -44,6 +45,14 @@ export class CrearMensajeComponent implements OnInit{
       );
     } else {
       console.error('Correo no encontrado en localStorage');
+    }
+
+    let fecha = new Date().getFullYear();
+    let digitos = fecha.toString().slice(-2);
+
+    if(localStorage.getItem('mail')?.includes(digitos)){
+      this.egresado = true;
+      console.log("es egresadoooo")
     }
   }
 

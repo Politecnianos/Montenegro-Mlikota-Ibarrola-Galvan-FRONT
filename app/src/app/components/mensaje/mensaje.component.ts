@@ -1,11 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Mensaje } from '../../interfaces/Mensaje';
 import { UserServiceService } from '../../services/Usuarios/userService.service';
 import { CommonModule, DatePipe } from '@angular/common';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { Respuesta } from '../../interfaces/Respuesta';
 import { RespuestasService } from '../../services/Respuestas/respuestas.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { RespuestaComponent } from '../respuesta/respuesta.component';
 import { MensajesService } from '../../services/Mensajes/mensajes.service';
 
@@ -17,7 +17,8 @@ import { MensajesService } from '../../services/Mensajes/mensajes.service';
     ReactiveFormsModule,
     RespuestaComponent,
     CommonModule,
-    FormsModule
+    FormsModule,
+    RouterLink
   ],
   templateUrl: './mensaje.component.html',
   styleUrls: ['./mensaje.component.css']
@@ -28,6 +29,7 @@ export class MensajeComponent implements OnInit {
   idAlumno: number = 0;
   respuestas: Respuesta[] = [];
   egresado: boolean = false;
+  @Output() mensajeEliminado = new EventEmitter<number>();
 
   mensajeEditado: String = '';
   editando: boolean = false; 
@@ -73,8 +75,8 @@ export class MensajeComponent implements OnInit {
       console.error("No se encontró el correo en localStorage.");
     }
 
-    let fecha = new Date().getFullYear;
-    const digitos = fecha.toString().slice(-2);
+    let fecha = new Date().getFullYear();
+    let digitos = fecha.toString().slice(-2);
 
     if(localStorage.getItem('mail')?.includes(digitos)){
       this.egresado = true;
@@ -170,6 +172,25 @@ export class MensajeComponent implements OnInit {
     this.mensajeEditado = '';
   }
 
+  eliminarMensaje(): void {
+    if (confirm('¿Estás seguro de que deseas eliminar este mensaje?')) {
+      this.mensajesService.eliminarMensaje(this.mensaje.id).subscribe(
+        (response) => {
+          console.log('Mensaje eliminado correctamente:', response);
+          this.mensajeEliminado.emit(this.mensaje.id);
+        },
+        (error) => {
+          console.error('Error al eliminar el mensaje:', error);
+          alert('Hubo un error al intentar eliminar el mensaje.');
+        }
+      );
+    }
+  }
+
+  actualizarRespuestas(idEliminado: number): void {
+    this.respuestas = this.respuestas.filter((respuesta) => respuesta.id !== idEliminado);
+  }
+  
 }
 
 

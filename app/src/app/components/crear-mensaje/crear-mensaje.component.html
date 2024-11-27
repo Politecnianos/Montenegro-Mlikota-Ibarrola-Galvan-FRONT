@@ -7,7 +7,7 @@
     <p class="textos">Seleccione la sección donde desee publicar el mensaje</p>
     <select class="form-select" id="seccion" formControlName="seccion">
         <option value="Tutorías">Tutorías</option>
-        <option value="Eventos">Eventos</option>
+        <option *ngIf="egresado == true" value="Eventos">Eventos</option>
     </select>
 </div>
 

@@ -3,6 +3,7 @@ import { ActivatedRoute, NavigationEnd, RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
 import { HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { UserServiceService } from '../../services/Usuarios/userService.service';
 
 @Component({
   selector: 'app-navbar',
@@ -19,13 +20,27 @@ export class NavbarComponent implements OnInit{
   activeTab: string = 'inicio'; 
   idAlumno : number = 0;
 
-  constructor(private router: Router, private route : ActivatedRoute) {}
+  constructor(private router: Router, private route : ActivatedRoute, private usuarioService: UserServiceService) {}
 
   ngOnInit(): void {
-    this.idAlumno = parseInt(this.route.snapshot.params['id'], 10);
+    this.getUsuarioDueno();
   }
   
-
+  getUsuarioDueno(): void {
+    const mail = localStorage.getItem('mail');
+    if (mail) {
+      this.usuarioService.getUsuarioDni(mail).subscribe(
+        (response) => {
+          this.idAlumno = response.dni;
+        },
+        (error) => {
+          console.error("Error al obtener el usuario:", error);
+        }
+      );
+    } else {
+      console.error("No se encontró el correo en localStorage.");
+    }
+  }
  
 
   toggleDropdown() {

@@ -26,6 +26,11 @@ export class MensajesService {
   actualizarMensaje(mensaje: Mensaje): Observable<Mensaje> {
     return this.http.put<Mensaje>(`${this.urlApi}/${mensaje.id}`, mensaje);
   }
+
+  eliminarMensaje(id: number): Observable<any> {
+    return this.http.delete(`${this.urlApi}/${id}`);
+  }
+  
 }
 
 

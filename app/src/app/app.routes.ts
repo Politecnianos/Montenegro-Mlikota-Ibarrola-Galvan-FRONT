@@ -42,7 +42,7 @@ export const routes: Routes = [
         title: 'Politecnianos'
     },
     {
-        path: 'perfil',
+        path: 'perfil/:id',
         component: PerfilComponent,
         canActivate : [authGuard],
         title: 'Perfil'

@@ -1,7 +1,7 @@
 <div class="mensaje">
   <div class="mensaje-header" style="display: flex; justify-content: space-between; align-items: center;">
     <div id="datos">
-      <p id="nombreUsuario">{{ nombreUsuario }}</p>
+      <p id="nombreUsuario" [routerLink]="['/perfil', mensaje.dueno]">{{ nombreUsuario }}</p>
       <div id="datosMsj" style="display: flex; gap: 0.5rem; align-items: center;">
         <p id="fecha">{{ mensaje.fecha | date:'fullDate' }}</p>
         <p> - </p>
@@ -9,6 +9,7 @@
       </div>
     </div>
 
+    <div id="acciones">
     <div id="editar">
       <button id="btnEditar" *ngIf="mensaje.dueno === idAlumno" (click)="habilitarEdicion()">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16">
@@ -16,7 +17,18 @@
         </svg>
       </button>
     </div>
+
+
+    <button id="btnEliminar" *ngIf="mensaje.dueno === idAlumno || egresado ===true " (click)="eliminarMensaje()">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16">
+      <path d="M135.2 17.7c3.2-9.1 11.9-15.7 21.6-15.7h134.5c9.7 0 18.4 6.6 21.6 15.7L327.8 32H432c8.8 0 16 7.2 16 16s-7.2 16-16 16H416L397.2 468c-1.6 26.5-23.9 44-50.4 44H101.2c-26.5 0-48.8-17.5-50.4-44L32 64H16c-8.8 0-16-7.2-16-16s7.2-16 16-16H120.2l15-14.3zM144.6 112c-8.8 0-15.9 7.3-15.1 16L148 432c.8 8.8 8 16 16.8 16s16.8-7.2 16-16L160.1 128c-.8-8.7-7.9-16-15.5-16zm160 0c-7.6 0-14.7 7.3-15.5 16l-5.4 304c-.8 8.8 7.2 16 16 16s16-7.2 16.8-16l5.4-304c.8-8.7-6.3-16-15.3-16zM224 128c-8.8 0-16 7.2-16 16v288c0 8.8 7.2 16 16 16s16-7.2 16-16V144c0-8.8-7.2-16-16-16z" />
+      </svg>
+    </button>
   </div>
+  </div>
+
+
+  
 
 
   <div *ngIf="!editando">
@@ -54,8 +66,7 @@
     </div>
   </form>
 
-
-  <div class="mensajes-container">
-    <app-respuesta *ngFor="let respuesta of respuestas" [respuesta]="respuesta"></app-respuesta>
+  <div *ngFor="let respuesta of respuestas" class="mensajes-container">
+    <app-respuesta [respuesta]="respuesta" (respuestaEliminada)="actualizarRespuestas($event)"> </app-respuesta>
   </div>
 </div>

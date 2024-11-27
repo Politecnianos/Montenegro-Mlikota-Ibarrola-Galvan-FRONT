@@ -2,14 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from '../../services/Usuarios/userService.service';
 import { Usuario } from '../../interfaces/Usuario';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-perfil',
   standalone: true,
   imports: [
     NavbarComponent,
-    RouterLink
+    RouterLink,
+    CommonModule
   ],
   templateUrl: './perfil.component.html',
   styleUrl: './perfil.component.css'
@@ -17,34 +19,45 @@ import { RouterLink } from '@angular/router';
 export class PerfilComponent implements OnInit{
   alumno : Usuario | undefined;
   idAlumno : number = 0;
+  idAlumnoSesion : number = 0;
 
   constructor(
     private usuarioService: UserServiceService,
+    private route:ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+    this.idAlumno = parseInt(this.route.snapshot.params['id'], 10);
     this.obtenerUsuario();
+    this.getUsuarioDueno();
   }
 
   obtenerUsuario(): void {
-    const mail = localStorage.getItem('mail');
-    if (mail) {
-      this.usuarioService.getUsuarioDni(mail).subscribe(
+      this.usuarioService.getUsuario(this.idAlumno).subscribe(
         (response) => {
-          this.idAlumno =response.dni;
-          this.usuarioService.getUsuario(this.idAlumno).subscribe(
-            (usuario) => {
-              this.alumno = usuario;
-          }, (error) => {
-            console.error('Error al obtener usuario', error)
-          })
+          this.alumno =response
         },
         (error) => {
           console.error('Error al obtener usuario:', error);
         }
       );
-    } else {
-      console.error('Correo no encontrado en localStorage');
-    }
   }
+
+  getUsuarioDueno(): void {
+    const mail = localStorage.getItem('mail');
+    if (mail) {
+      this.usuarioService.getUsuarioDni(mail).subscribe(
+        (response) => {
+          this.idAlumnoSesion = response.dni;
+        },
+        (error) => {
+          console.error("Error al obtener el usuario:", error);
+        }
+      );
+    } else {
+      console.error("No se encontró el correo en localStorage.");
+    }
+    }
 }
+
+

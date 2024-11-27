@@ -57,5 +57,9 @@ export class TutoriasComponent {
       console.error('Correo no encontrado en localStorage');
     }
   }
+
+  actualizarMensajes(idEliminado: number): void {
+    this.mensajes = this.mensajes.filter((mensaje) => mensaje.id !== idEliminado);
+  }
   
 }
