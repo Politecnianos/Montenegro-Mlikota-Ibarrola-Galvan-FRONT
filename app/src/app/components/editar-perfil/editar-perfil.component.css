@@ -1,0 +1,79 @@
+#editarAlumno{
+    margin-top: 10%;
+    margin-left: 3%;
+}
+
+#apodo{
+    border: none;
+    width: 15%;
+    font-size: 18px;
+    height: 22px;
+}
+
+input:focus{
+    border-color: #007bff; 
+    outline: none; 
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
+}
+
+textarea{
+    width: 98%;
+    height: 7%;
+    padding-right: 1%;
+    padding: 8px; 
+    border: 1px solid #ccc;
+    font-size: 16px;
+    resize: vertical; 
+    border-radius: 8px; 
+    margin-bottom: 3%;
+}
+
+textarea:focus {
+    border-color: #007bff; 
+    outline: none; 
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
+}
+
+.textos{
+    font-family: 'Titulos';
+    font-size: 20px;
+    margin-bottom: 1%;
+    margin-top: 3%;
+}
+
+.form-select{
+    border: 1px solid rgb(148, 145, 145);
+    background-color:  rgba(255, 255, 255, 0.603);
+    padding: 9px;
+    border-radius: 4px;
+    width: 200px;
+}
+
+#infoCurso{
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+}
+
+#especialidad{
+    margin-left: 2%;
+}
+
+#botonDiv{
+    align-items: end;
+    justify-content: end;
+    display: flex;
+    margin-top: 6%;
+    margin-right: 2%;
+}
+
+#btnGuardar{
+    background-color: rgb(17, 17, 112);
+    color: white;
+    font-family: 'Titulos';
+    font-weight: bold;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+
+}

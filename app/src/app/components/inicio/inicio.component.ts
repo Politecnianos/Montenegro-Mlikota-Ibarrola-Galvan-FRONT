@@ -5,7 +5,8 @@ import { Mensaje } from '../../interfaces/Mensaje';
 import { CommonModule } from '@angular/common';
 import { MensajeComponent } from '../mensaje/mensaje.component';
 import { UserServiceService } from '../../services/Usuarios/userService.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @Component({
@@ -14,7 +15,9 @@ import { ActivatedRoute } from '@angular/router';
   imports: [
     NavbarComponent,
     CommonModule,
-    MensajeComponent
+    MensajeComponent,
+    RouterLink,
+    NgxPaginationModule
   ],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css'
@@ -22,25 +25,58 @@ import { ActivatedRoute } from '@angular/router';
 export class InicioComponent implements OnInit{
 
   mensajes : Mensaje[] = [];
+  idAlumno : number = 0;
+  egresado: boolean = false;
+  public page : number = 1;
 
   constructor(private msjService : MensajesService, private usuarioService : UserServiceService){}
 
   ngOnInit(): void {
     this.getMensajes();
+    this.getUsuarioDueno();
   }
 
 
   getMensajes(): void {
-    this.msjService.getMensajes().subscribe(response => {
+    this.mensajes = [];
+    this.msjService.getMensajes().subscribe((response) => {
       if (response) {
-        this.mensajes = response;
-        this.mensajes = this.mensajes.filter(mensaje => mensaje.seccion === 'Eventos');
+        this.mensajes = response.filter((mensaje) => mensaje.seccion === 'Eventos');
       } else {
         console.error('Error: No se pudo obtener la lista de mensajes');
       }
     });
   }
 
+  getUsuarioDueno(): void {
+    const mail = localStorage.getItem('mail');
+    if (mail) {
+      this.usuarioService.getUsuarioDni(mail).subscribe(
+        (response) => {
+          this.idAlumno = response.dni;
+        },
+        (error) => {
+          console.error("Error al obtener el usuario:", error);
+        }
+      );
+    } else {
+      console.error("No se encontró el correo en localStorage.");
+    }
+
+    let fecha = new Date().getFullYear();
+    let digitos = fecha.toString().slice(-2);
+
+    if(localStorage.getItem('mail')?.includes(digitos)){
+      this.egresado = true;
+      console.log("es egresado")
+    }
+  }
+  
+
+  actualizarMensajes(idEliminado: number): void {
+    this.mensajes = this.mensajes.filter((mensaje) => mensaje.id !== idEliminado);
+  }
+  
   
 
   

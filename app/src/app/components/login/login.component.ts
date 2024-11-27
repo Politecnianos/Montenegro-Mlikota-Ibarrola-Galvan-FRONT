@@ -40,18 +40,8 @@ export class LoginComponent {
       this.alumnosService.login(mail, contrasena).subscribe(
         (response: string) => {
           localStorage.setItem('token', response);
-  
-          // Actualiza el correo y busca el DNI antes de redirigir
-          this.alumnosService.getUsuarioDni(mail).subscribe(
-            (usuario: Usuario) => {
-              this.dni = usuario.dni;
-              this.router.navigate(['/inicio', this.dni]);
-            },
-            (error) => {
-              console.error('Error al obtener el usuario:', error);
-              alert('No se pudo obtener el usuario.');
-            }
-          );
+          localStorage.setItem('mail', mail);
+          this.router.navigate(['/Eventos']);
         },
         (error) => {
           console.error('Error de autenticación', error);
@@ -65,8 +55,4 @@ export class LoginComponent {
   }
   
 
-  getUsuario(): void {
-
-    
-  }
 }

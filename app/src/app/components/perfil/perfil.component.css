@@ -1,0 +1,86 @@
+#nombre{
+    font-family: 'Titulos II';
+    font-size: 40px;
+}
+#apodo{
+    font-family: 'Textos light';
+    margin-left: 1.5%;
+    font-size: 20px;
+}
+#nombres{
+    display: flex;
+    margin-top: 7%;
+    align-items: baseline;
+    justify-content:flex-start;
+    margin-left: 3%;
+}
+
+.subtitulos{
+    font-family: 'Titulos';
+    font-size: 20px;
+    margin-left: 3%;
+}
+
+.textos{
+    font-family: 'Textos light';
+    font-size: 18px;
+    margin-left: 3%;
+}
+
+#descripcion{
+    margin-top: 3%;
+}
+
+#editar{
+    width: 20%;
+    height: 40px;
+    background-color:rgb(3, 3, 90);
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-family: 'Titulos';
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    cursor: pointer;
+}
+
+svg{
+    width: 30px;
+    height: 30px;
+    margin-left: 6%;
+}
+
+#btnEditar{
+    align-items: end;
+    justify-content: end;
+    display: flex;
+    margin-right: 2%;
+    margin-top: 10%;
+}
+
+#eliminar{
+    width: 10%;
+    height: 40px;
+    background-color: rgb(197, 8, 8);
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-family: 'Titulos';
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    cursor: pointer;
+    margin-left: 1%;
+}
+
+#eliminarCuenta{
+    align-items: end;
+    justify-content: end;
+    display: flex;
+    margin-right: 2%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}

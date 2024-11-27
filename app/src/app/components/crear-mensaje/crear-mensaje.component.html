@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+
+
+<form [formGroup]="applyForm" (ngSubmit)="submitApplication()">
+
+  <div class="divInput">
+    <p class="textos">Seleccione la sección donde desee publicar el mensaje</p>
+    <select class="form-select" id="seccion" formControlName="seccion">
+        <option value="Tutorías">Tutorías</option>
+        <option *ngIf="egresado == true" value="Eventos">Eventos</option>
+    </select>
+</div>
+
+<p class="textos">Escriba el contenido de su mensaje</p>
+<textarea id="contenido" class="form-control" formControlName="contenido"placeholder="Escriba aquí" rows="4">
+</textarea>
+
+  <div id="mandarMensaje">
+    <button id="cancelar" class="botones" [routerLink]="['/Eventos']">Cancelar</button>
+    <button id="enviar" type="submit" class="botones">Enviar</button>
+  </div>
+  </form>
