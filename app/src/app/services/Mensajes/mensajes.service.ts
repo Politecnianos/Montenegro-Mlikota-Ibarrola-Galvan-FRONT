@@ -19,4 +19,13 @@ export class MensajesService {
     return this.http.get<Mensaje[]>(this.urlApi);
   }
 
+  agregarMensaje(mensaje : Mensaje) : Observable<any>{
+    return this.http.post(this.urlApi, mensaje);
+  }
+
+  actualizarMensaje(mensaje: Mensaje): Observable<Mensaje> {
+    return this.http.put<Mensaje>(`${this.urlApi}/${mensaje.id}`, mensaje);
+  }
 }
+
+

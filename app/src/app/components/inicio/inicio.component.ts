@@ -5,7 +5,7 @@ import { Mensaje } from '../../interfaces/Mensaje';
 import { CommonModule } from '@angular/common';
 import { MensajeComponent } from '../mensaje/mensaje.component';
 import { UserServiceService } from '../../services/Usuarios/userService.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 
 @Component({
@@ -14,7 +14,8 @@ import { ActivatedRoute } from '@angular/router';
   imports: [
     NavbarComponent,
     CommonModule,
-    MensajeComponent
+    MensajeComponent,
+    RouterLink
   ],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css'

@@ -43,6 +43,7 @@ export class NavbarComponent implements OnInit{
 
   logout(){
     localStorage.removeItem('token');
+    localStorage.removeItem('mail')
     this.router.navigateByUrl('/login')
   }
 }

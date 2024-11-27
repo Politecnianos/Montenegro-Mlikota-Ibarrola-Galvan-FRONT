@@ -30,4 +30,10 @@ export class UserServiceService {
     return this.http.get<Usuario>(`${this.urlApi}/mail/${mail}`);
 
   }
+
+  updateAlumno(nuevoAlumno : Usuario): Observable<Usuario>{
+    const url = `${this.urlApi}/${nuevoAlumno.dni}`;
+    return this.http.put<Usuario>(url, nuevoAlumno);
+  }
+
 }

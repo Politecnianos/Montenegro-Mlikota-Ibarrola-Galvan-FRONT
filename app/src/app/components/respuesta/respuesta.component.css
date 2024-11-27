@@ -1,6 +1,6 @@
 .mensaje {
     width: 100% !important;
-    background-color: rgb(241, 237, 237);
+    background-color: rgba(128, 128, 128, 0.233);
     border-bottom: 2px solid #ccc;
   }
 

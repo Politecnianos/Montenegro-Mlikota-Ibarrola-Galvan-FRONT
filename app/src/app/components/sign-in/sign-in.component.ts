@@ -91,7 +91,7 @@ export class SignInComponent {
         response => {
           console.log('Alumno agregado correctamente:', response);
           alert("Te registraste correctamente. Ya puedes iniciar sesión desde el login")
-          this.router.navigateByUrl('')
+          this.router.navigateByUrl("/login")
         },
         error => {
           console.error('Error al agregar alumno:', error);

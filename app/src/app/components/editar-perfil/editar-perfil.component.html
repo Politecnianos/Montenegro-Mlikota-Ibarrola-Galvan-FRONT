@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+
+
+<form *ngIf="alumnoForm" [formGroup]="alumnoForm" (ngSubmit)="onSubmit()" id="editarAlumno">
+  <div class="divInput">
+    <p class="textos">Cambiar Apodo</p>
+    <input type="text" class="form-control" id="apodo" formControlName="apodo" placeholder="Introduzca su nuevo apodo"/>
+  </div>
+
+  <div class="divInput">
+    <p class="textos">Cambiar Descripción</p>
+    <textarea type="text" class="form-control" formControlName="descripcion" placeholder="Introduzca su nueva descripción" rows="5"></textarea>
+    </div>
+
+
+  <div id="infoCurso">
+  <div class="divInput">
+    <p class="textos">Seleccionar Curso</p>
+    <select class="form-select" formControlName="curso">
+      <option value="" disabled>Seleccione su curso</option>
+      <option value="1">Primero</option>
+      <option value="2">Segundo</option>
+      <option value="3">Tercero</option>
+      <option value="4">Cuarto</option>
+      <option value="5">Quinto</option>
+      <option value="6">Sexto</option>
+    </select>
+  </div>
+
+  <div class="divInput" id="especialidad">
+    <p class="textos">Seleccionar Especialidad</p>
+    <select class="form-select" formControlName="orientacion">
+      <option value="" disabled>Seleccione su especialidad</option>
+      <option value="computación">Computación</option>
+      <option value="mecánica">Mecánica</option>
+      <option value="ciclo básico">Ciclo Básico</option>
+    </select>
+  </div>
+  </div>
+
+  <div id="botonDiv">
+    <button id="btnGuardar" type="submit">Guardar Cambios</button>
+  </div>
+</form>
