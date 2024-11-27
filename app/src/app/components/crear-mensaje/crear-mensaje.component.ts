@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserServiceService } from '../../services/Usuarios/userService.service';
 import { MensajesService } from '../../services/Mensajes/mensajes.service';
 import { Mensaje } from '../../interfaces/Mensaje';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { Router, RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-crear-mensaje',
@@ -12,7 +13,9 @@ import { Router, RouterLink } from '@angular/router';
   imports: [
     ReactiveFormsModule,
     NavbarComponent,
-    RouterLink
+    RouterLink,
+    FormsModule,
+    CommonModule
   ],
   templateUrl: './crear-mensaje.component.html',
   styleUrl: './crear-mensaje.component.css'
