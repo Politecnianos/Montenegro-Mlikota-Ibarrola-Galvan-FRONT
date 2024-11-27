@@ -1,11 +1,49 @@
 <div class="mensaje">
-    <div class="header">
-      <p id="nombreUsuario">{{ nombreUsuario}}</p>
-      <p id="datosMsj">{{ respuesta.fecha | date:'fullDate' }}</p>
-    </div>
+    <div class="header" style="display: flex; justify-content: space-between; align-items: center;">
+      <div id="headerDatos">
+        <p id="nombreUsuario">{{ nombreUsuario}}</p>
+        <p id="datosMsj">{{ respuesta.fecha | date:'fullDate' }}</p>
+      </div>
 
-    <div class="mensaje-body">
-      <p id="respuesta">{{ respuesta.contenido }}</p>
+      <div id="acciones">
+        <div id="editar">
+          <button id="btnEditar" *ngIf="respuesta.dueno === idUsuarioSesion" (click)="habilitarEdicion()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16">
+              <path d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160L0 416c0 53 43 96 96 96l256 0c53 0 96-43 96-96l0-96c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 96c0 17.7-14.3 32-32 32L96 448c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l96 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 64z" />
+            </svg>
+          </button>
+        </div>
+    
+    
+        <button id="btnEliminar" *ngIf="respuesta.dueno === idUsuarioSesion || egresado ===true " (click)="eliminarMensaje()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16">
+          <path d="M135.2 17.7c3.2-9.1 11.9-15.7 21.6-15.7h134.5c9.7 0 18.4 6.6 21.6 15.7L327.8 32H432c8.8 0 16 7.2 16 16s-7.2 16-16 16H416L397.2 468c-1.6 26.5-23.9 44-50.4 44H101.2c-26.5 0-48.8-17.5-50.4-44L32 64H16c-8.8 0-16-7.2-16-16s7.2-16 16-16H120.2l15-14.3zM144.6 112c-8.8 0-15.9 7.3-15.1 16L148 432c.8 8.8 8 16 16.8 16s16.8-7.2 16-16L160.1 128c-.8-8.7-7.9-16-15.5-16zm160 0c-7.6 0-14.7 7.3-15.5 16l-5.4 304c-.8 8.8 7.2 16 16 16s16-7.2 16.8-16l5.4-304c.8-8.7-6.3-16-15.3-16zM224 128c-8.8 0-16 7.2-16 16v288c0 8.8 7.2 16 16 16s16-7.2 16-16V144c0-8.8-7.2-16-16-16z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  
+    <div *ngIf="!editando">
+      <p id="contenido">{{ respuesta.contenido }}</p>
+    </div>
+  
+  
+    <div *ngIf="editando">
+      <textarea type="text" [(ngModel)]="respuestaEditada" placeholder="Editar respuesta" class="form-control"></textarea>
+      
+      <div id="btnEdicion">
+      <button (click)="guardarEdicion()" class="enviar">
+        <svg fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16">
+          <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+        </svg>
+      </button>
+  
+      <button (click)="cancelarEdicion()"  class="cancelar" >
+        <svg fill="red" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/>
+        </svg>
+      </button>
+    </div>
     </div>
 
   </div>

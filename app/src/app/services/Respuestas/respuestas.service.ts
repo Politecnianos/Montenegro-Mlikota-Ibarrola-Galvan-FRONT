@@ -20,4 +20,12 @@ export class RespuestasService {
     return this.http.get<Respuesta[]>(this.urlApi);
   }
 
+  actualizarRespuesta(respuesta: Respuesta): Observable<Respuesta> {
+    return this.http.put<Respuesta>(`${this.urlApi}/${respuesta.id}`, respuesta);
+  }
+
+  eliminarRespuesta(id: number): Observable<any> {
+    return this.http.delete(`${this.urlApi}/${id}`);
+  }
+
 }

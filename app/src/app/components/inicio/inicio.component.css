@@ -1,5 +1,4 @@
 .mensajes-container {
-    margin-top: 9%;
     align-items: stretch;
     justify-content: center;
     display: flex;
@@ -37,4 +36,12 @@
     z-index: 1000;
     width: auto;   
     height: auto;
+}
+
+pagination-controls{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 2%;
+    font-family: 'Titulos';
 }
