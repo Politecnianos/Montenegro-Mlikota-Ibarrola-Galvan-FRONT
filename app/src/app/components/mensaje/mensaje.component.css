@@ -15,6 +15,7 @@
     font-family: "Titulos II";
     padding: 15px;
     padding-bottom: 0px !important;
+    cursor: pointer;
   }
 
   #datosMsj{
@@ -38,6 +39,9 @@
   .mensaje-header {
     font-size: 18px;
     color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   #contenido{
@@ -50,25 +54,35 @@
     display: flex;
     width: 99%;
     align-items: center;
-    background-color: rgb(241, 237, 237);
+    background-color: rgb(21, 4, 121);
     margin-left: 0%;
     padding-left: 15px;
     padding-top: 15px;
     padding-bottom: 15px;
+    border: 2px solid rgb(5, 5, 5);
   }
 
-  input{
+  textarea{
     width: 98%;
     height: 7%;
     padding-right: 1%;
-    padding: 5px;
-    border: none;
+    padding: 8px; 
+    border: 1px solid #ccc;
+    font-size: 16px;
+    resize: vertical; 
+    border-radius: 8px; 
   }
 
-  #enviar{
+  textarea:focus {
+    border-color: #007bff; 
+    outline: none; 
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
+}
+
+  .enviar{
     width: 25px;
     height: 25px;
-    background-color: rgb(4, 4, 146);
+    background-color: rgb(75, 75, 233);
     border-radius: 50%;
     border: none;
     margin-left: 1%;
@@ -77,7 +91,7 @@
     display: flex;
   }
 
-  #enviar:hover{
+  .enviar:hover{
     background-color: rgba(4, 4, 146, 0.712);
   }
 
@@ -85,3 +99,45 @@
     padding-bottom: 0px !important;
     margin-bottom: 0px !important;
   }
+
+  
+  #editar{
+    align-items: end;
+    justify-content: end;
+    display: inline-end;
+    margin-right: 2%;
+  }
+
+  #btnEditar, #btnEliminar{
+    height: 30px;
+    width: 30px;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+  }
+
+  .cancelar{
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    border-radius: 50%;
+    border: none;
+    margin-right: 1%;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+  }
+
+  #btnEdicion{
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+  }
+
+  #acciones {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-right: 2%;
+}

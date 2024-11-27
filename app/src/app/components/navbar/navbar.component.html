@@ -4,9 +4,9 @@
     </a>
 
 
-    <button class="secciones" [routerLink]="['/inicio', idAlumno]">Eventos</button>
+    <button class="secciones" [routerLink]="['/Eventos']">Eventos</button>
 
-    <button class="secciones" [routerLink]="['/tutorias', idAlumno]">Tutorías</button>
+    <button class="secciones" [routerLink]="['/Tutorias']">Tutorías</button>
 
     <div id="user" class="dropdown-container">
         <button class="dropbtn" (click)="toggleDropdown()">
@@ -18,7 +18,7 @@
           
     
         <div id="myDropdown" class="dropdown-content" [ngClass]="{'show': isDropdownOpen}">
-          <a routerLink="/perfil">Ver perfil</a>
+          <a [routerLink]="['/perfil', idAlumno]">Ver perfil</a>
           <a (click)="logout()">Cerrar sesión</a>
         </div>
       </div>

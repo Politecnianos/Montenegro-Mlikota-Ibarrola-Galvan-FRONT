@@ -1,0 +1,68 @@
+form{
+    margin-top: 9%;
+    margin-left: 2%;
+}
+
+#seccion{
+    width: 15%;
+    margin-bottom: 3%;
+    font-family: "Textos Light";
+}
+
+.textos{
+    font-family: "Titulos";
+    font-size: larger;
+}
+
+#contenido{
+    width: 80%;
+    height: 200px;
+    font-size: larger;
+    margin-bottom: 6%;
+}
+
+textarea {
+    width: 100%; 
+    padding: 10px; 
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px; 
+    resize: vertical; 
+}
+
+textarea:focus {
+    border-color: #007bff; 
+    outline: none; 
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
+}
+
+.botones{
+    width: 8%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+    font-size: medium;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 1px 5px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+#mandarMensaje{
+    justify-content: end;
+    align-items: end;
+    display: flex;
+    margin-right: 2%;
+}  
+
+#enviar{
+    background-color: rgb(2, 80, 143);
+    margin-left: 1.5%;
+}
+
+#cancelar{
+    background-color: rgb(3, 48, 85);
+}
