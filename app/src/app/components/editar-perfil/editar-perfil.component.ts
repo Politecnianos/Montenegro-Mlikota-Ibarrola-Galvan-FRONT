@@ -86,7 +86,7 @@ export class EditarPerfilComponent implements OnInit{
     this.usuarioService.updateAlumno(alumnoNuevo).subscribe(
       (response) => {
         alert('Datos del alumno actualizados correctamente.');
-        this.router.navigateByUrl('/perfil');
+        this.router.navigateByUrl('/Eventos');
         
       },
       (error) => {

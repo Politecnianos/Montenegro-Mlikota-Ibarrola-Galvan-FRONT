@@ -9,7 +9,7 @@
 }
 #nombres{
     display: flex;
-    margin-top: 9%;
+    margin-top: 7%;
     align-items: baseline;
     justify-content:flex-start;
     margin-left: 3%;
@@ -58,4 +58,29 @@ svg{
     display: flex;
     margin-right: 2%;
     margin-top: 10%;
+}
+
+#eliminar{
+    width: 10%;
+    height: 40px;
+    background-color: rgb(197, 8, 8);
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-family: 'Titulos';
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    cursor: pointer;
+    margin-left: 1%;
+}
+
+#eliminarCuenta{
+    align-items: end;
+    justify-content: end;
+    display: flex;
+    margin-right: 2%;
+    margin-top: 1%;
+    margin-bottom: 2%;
 }

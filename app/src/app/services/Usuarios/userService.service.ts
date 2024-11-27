@@ -36,4 +36,9 @@ export class UserServiceService {
     return this.http.put<Usuario>(url, nuevoAlumno);
   }
 
+
+  eliminarUsuario(id: number): Observable<any> {
+    return this.http.delete(`${this.urlApi}/${id}`);
+  }
+
 }

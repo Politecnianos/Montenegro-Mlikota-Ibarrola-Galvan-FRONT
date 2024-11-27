@@ -6,6 +6,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { MensajesService } from '../../services/Mensajes/mensajes.service';
 import { MensajeComponent } from '../mensaje/mensaje.component';
 import { RouterLink } from '@angular/router';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-tutorias',
@@ -14,7 +15,8 @@ import { RouterLink } from '@angular/router';
     NavbarComponent,
     CommonModule,
     MensajeComponent,
-    RouterLink
+    RouterLink,
+    NgxPaginationModule
   ],
   templateUrl: './tutorias.component.html',
   styleUrl: './tutorias.component.css'
@@ -22,6 +24,7 @@ import { RouterLink } from '@angular/router';
 export class TutoriasComponent {
   mensajes : Mensaje[] = [];
   idAlumno: number = 0;
+  public page : number = 1;
 
   constructor(private msjService : MensajesService, private usuarioService : UserServiceService){}
 

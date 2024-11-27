@@ -20,10 +20,12 @@ export class PerfilComponent implements OnInit{
   alumno : Usuario | undefined;
   idAlumno : number = 0;
   idAlumnoSesion : number = 0;
+  egresado : boolean = false;
 
   constructor(
     private usuarioService: UserServiceService,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -57,6 +59,31 @@ export class PerfilComponent implements OnInit{
     } else {
       console.error("No se encontró el correo en localStorage.");
     }
+      let fecha = new Date().getFullYear();
+      let digitos = fecha.toString().slice(-2);
+
+      if(localStorage.getItem('mail')?.includes(digitos)){
+        this.egresado = true;
+        console.log("es egresadoooo")
+      }
+    }
+
+    eliminarAlumno() : void{
+      if(confirm("¿Estás seguro que deseas eliminar esta cuenta?")){
+        this.usuarioService.eliminarUsuario(this.idAlumno).subscribe(
+          (response) => {
+            console.log("Cuenta eliminada correctamente")
+            if(this.idAlumno == this.idAlumnoSesion){
+              this.router.navigateByUrl('/login')
+            }else{
+              this.router.navigateByUrl('/Eventos')
+            }
+          },
+          (error) =>{
+            console.log("La cuenta no pudo eliminarse", error);
+          }
+        )
+      }
     }
 }
 

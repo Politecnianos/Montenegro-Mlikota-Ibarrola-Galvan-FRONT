@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { MensajeComponent } from '../mensaje/mensaje.component';
 import { UserServiceService } from '../../services/Usuarios/userService.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @Component({
@@ -15,7 +16,8 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
     NavbarComponent,
     CommonModule,
     MensajeComponent,
-    RouterLink
+    RouterLink,
+    NgxPaginationModule
   ],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css'
@@ -25,6 +27,7 @@ export class InicioComponent implements OnInit{
   mensajes : Mensaje[] = [];
   idAlumno : number = 0;
   egresado: boolean = false;
+  public page : number = 1;
 
   constructor(private msjService : MensajesService, private usuarioService : UserServiceService){}
 
