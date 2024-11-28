@@ -10,10 +10,14 @@
   <button id="btnAgregar" [routerLink] ="['/crearMensaje']"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="rgb(13, 13, 78)"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/></svg></button>
 </div>
 
-<div *ngFor="let mensaje of mensajes | paginate: { itemsPerPage: 2, currentPage: page }" class="mensajes-container">
+<div *ngFor="let mensaje of mensajes " class="mensajes-container">
   <app-mensaje [mensaje]="mensaje" (mensajeEliminado)="actualizarMensajes($event)"> </app-mensaje>
 </div>
-
-<pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
-
-  
+<pagination-controls 
+  (pageChange)="onPageChange($event)" 
+  [totalItems]="totalMensajes" 
+  [pageSize]="5"
+  [currentPage]="page"
+  previousLabel="Anterior" 
+  nextLabel="Siguiente">
+</pagination-controls>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Mensaje } from '../../interfaces/Mensaje';
 import { HttpHeaders } from '@angular/common/http';
@@ -13,12 +13,18 @@ export class MensajesService {
 
   constructor(private http: HttpClient) { }
 
-  getMensajes() : Observable <Mensaje[]>{
-    // const token = localStorage.getItem('token');
-    // const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.get<Mensaje[]>(this.urlApi);
-  }
 
+  getMensajes(page: number = 1, limit: number = 5, seccion: string = ''): Observable<any> {
+    let params = new HttpParams()
+      .set('page', page.toString())
+      .set('limit', limit.toString());
+
+    if (seccion) {
+      params = params.set('seccion', seccion);
+    }
+
+    return this.http.get<any>(this.urlApi, { params });
+  }
   agregarMensaje(mensaje : Mensaje) : Observable<any>{
     return this.http.post(this.urlApi, mensaje);
   }

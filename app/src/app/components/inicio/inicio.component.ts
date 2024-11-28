@@ -7,6 +7,7 @@ import { MensajeComponent } from '../mensaje/mensaje.component';
 import { UserServiceService } from '../../services/Usuarios/userService.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
 @Component({
@@ -17,8 +18,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CommonModule,
     MensajeComponent,
     RouterLink,
-    NgxPaginationModule
+    NgxPaginationModule,
+ 
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css'
 })
@@ -27,7 +30,8 @@ export class InicioComponent implements OnInit{
   mensajes : Mensaje[] = [];
   idAlumno : number = 0;
   egresado: boolean = false;
-  public page : number = 1;
+  public page: number = 1;
+  totalMensajes: number = 0;
 
   constructor(private msjService : MensajesService, private usuarioService : UserServiceService){}
 
@@ -38,10 +42,14 @@ export class InicioComponent implements OnInit{
 
 
   getMensajes(): void {
-    this.mensajes = [];
-    this.msjService.getMensajes().subscribe((response) => {
+    const seccion = 'Eventos'; 
+    this.msjService.getMensajes(this.page, 5, seccion).subscribe((response) => {
       if (response) {
-        this.mensajes = response.filter((mensaje) => mensaje.seccion === 'Eventos');
+        console.log("aaaaaa", response)
+        this.mensajes = response.mensajes;
+        this.totalMensajes = response.totalMensajes;
+        console.log("aaaaaaT", response.totalMensajes)
+        console.log("Total de mensajes en la respuesta:", this.totalMensajes);
       } else {
         console.error('Error: No se pudo obtener la lista de mensajes');
       }
@@ -78,7 +86,14 @@ export class InicioComponent implements OnInit{
   }
   
   
-
+  onPageChange(page: number): void {
+    console.log("AAAA")
+    console.log("Página cambiada:", page);
+    console.log("Total de mensajes:", this.totalMensajes);
+    console.log("Tamaño de página:", 5);
   
+    this.page = page;
+    this.getMensajes();
+  }
 
 }
